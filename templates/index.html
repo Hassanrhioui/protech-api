@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropTech Solutions</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --text: #172033;
+            --muted: #67748a;
+            --accent: #2563eb;
+            --accent-soft: #dbeafe;
+            --border: #e5eaf2;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fbff 0%, var(--bg) 100%);
+            color: var(--text);
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 24px;
+            padding: 28px;
+            border-radius: 24px;
+            background: var(--surface);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            margin: 0 0 10px;
+        }
+
+        .hero p { color: var(--muted); line-height: 1.6; }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn.secondary {
+            background: #f8fafc;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .stats {
+            display: grid;
+            gap: 12px;
+        }
+
+        .stat-card {
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f8fbff 100%);
+            border: 1px solid var(--border);
+        }
+
+        .stat-card strong { display: block; font-size: 1.2rem; margin-bottom: 4px; }
+
+        .section { margin-top: 24px; }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .section-heading h2 { margin: 0; font-size: 1.3rem; }
+        .section-heading p { margin: 0; color: var(--muted); }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.06);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body { padding: 16px; }
+        .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+        .meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 8px; }
+        .price { color: #0f766e; font-weight: 700; font-size: 1.08rem; margin: 0 0 10px; }
+        .pill {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 999px;
+            background: #f1f5f9;
+            color: var(--text);
+        }
+
+        @media (max-width: 840px) {
+            .hero { grid-template-columns: 1fr; }
+            .section-heading { flex-direction: column; align-items: start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div>
+                <span class="eyebrow">Smart property discovery</span>
+                <h1>Modern homes, curated for the future.</h1>
+                <p>Browse a refined collection of contemporary properties with clear pricing, availability, and architectural inspiration.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#listings">Explore listings</a>
+                    <a class="btn secondary" href="#insights">Market highlights</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <strong>24/7</strong>
+                    <span>Live property insights</span>
+                </div>
+                <div class="stat-card">
+                    <strong>98%</strong>
+                    <span>Client satisfaction score</span>
+                </div>
+                <div class="stat-card">
+                    <strong>3 new</strong>
+                    <span>featured homes this week</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section" id="listings">
+            <div class="section-heading">
+                <h2>Featured properties</h2>
+                <p>Updated with elegant modern homes and lifestyle-focused details.</p>
+            </div>
+            <div id="property-list" class="property-grid">Loading properties...</div>
+        </section>
+
+        <section class="section" id="insights">
+            <div class="section-heading">
+                <h2>Why buyers love this experience</h2>
+                <p>A polished way to explore homes without the clutter.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        fetch('/api/properties')
+            .then(response => response.json())
+            .then(data => {
+                const listDiv = document.getElementById('property-list');
+                listDiv.innerHTML = '';
+
+                if (!data.length) {
+                    listDiv.innerHTML = '<p>No properties available right now.</p>';
+                    return;
+                }
+
+                data.forEach(prop => {
+                    const card = `
+                        <article class="card">
+                            <img src="${prop.image || 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80'}" alt="${prop.address}">
+                            <div class="card-body">
+                                <h3>${prop.address}</h3>
+                                <p class="meta">${prop.type || 'Modern property'} • ${prop.bedrooms || 3} beds • ${prop.bathrooms || 2} baths</p>
+                                <p class="price">$${prop.price.toLocaleString()}</p>
+                                <span class="pill">${prop.status}</span>
+                            </div>
+                        </article>
+                    `;
+                    listDiv.innerHTML += card;
+                });
+            })
+            .catch(err => {
+                console.error("Error fetching properties:", err);
+                document.getElementById('property-list').innerHTML = '<p>Unable to load properties right now.</p>';
+            });
+    </script>
+</body>
+</html>
